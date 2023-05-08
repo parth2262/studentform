@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<style>
+    table, th, td {
+    border:1px solid black;
+  }
+  td{
+      text-align: center;
+  }</style>
+<body>
+    <h1>Student Data</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Roll No.</th>
+            <th>Subject</th>
+            <th>Teacher</th>
+            <th>Marks</th>
+            <th>Delete</th>
+            <th>Update</th>
+            <th>Result</th>
+        </tr>
+
+        {% for student in students %}
+        <tr>
+            <td>{{ student.name }}</td>
+            <td>{{ student.roll_no }}</td>
+            <td>{{ student.subject_id }}</td>
+            <td>{{ student.teacher_id }}</td>
+            <td>{{ student.marks }}</td>
+            <td><a type="onclick"  href="{{url_for('delete', id=student.id)}}">Delete </a></td>
+            <td><a type="onclick"  href="{{url_for('edit', id=student.id)}}">Update </a></td>
+            <td><a type="onclick"  href="{{url_for('calculate_percentage', id=student.id)}}">Result </a></td>
+            <td>
+            </td>
+        </tr>
+        {% endfor %}
+
+        
+    </table>
+    
+    <div>
+        <br></br>
+    <button><a type="onclick" class="registerbtn" href="{{url_for('ragister')}}">Register </a></button>
+     
+</div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Student Registration Form</title>
+        <style>
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 50px;
+            }
+    
+            label {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 10px;
+                font-weight: bold;
+            }
+    
+            input {
+                padding: 5px;
+                margin-top: 5px;
+                margin-bottom: 15px;
+                width: 250px;
+            }
+    
+            select {
+                padding: 5px;
+                margin-top: 5px;
+                margin-bottom: 15px;
+                width: 250px;
+            }
+    
+            button {
+                padding: 10px 20px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-top: 20px;
+            }
+    
+            button:hover {
+                background-color: #3e8e41;
+            }
+        </style>
+    </head>
+    <body>
+        <form method="post" action="">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{ student.name }}" required>
+    
+            <label for="rollno">Roll No:</label>
+            <input type="text" id="rollno" name="rollno" value="{{ student.roll_no }}" required>
+    
+            <label for="subject">Subject:</label>
+            <select name="subject" id="subject">
+                {% for subject in subjects %}
+                <option value="{{ subject.id }}">{{ subject.name }}</option>
+                {% endfor %}
+            </select>
+    
+    
+            <label for="teacher">Teacher:</label>
+            <select name="teacher" id="teacher">
+                {% for teacher in teachers %}
+                <option value="{{ teacher.id }}">{{ teacher.name }}</option>
+                {% endfor %}
+            </select>
+    
+            <label for="marks">Marks:</label>
+            <input type="text" id="marks" name="marks" value= "{{student.marks}}"required>
+    
+            <button type="submit">Register</button>
+
+            
+        </form>
+    </body>
+    </html>
+    

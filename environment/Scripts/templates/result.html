@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+</head>
+<body>
+    {% if error %}
+        <h1>{{ error }}</h1>
+    {% else %}
+        
+        <p>Total Marks: {{ total_marks }}</p>
+        <p>Percentage: {{ percentage }}%</p>
+    {% endif %}
+</body>
+</html>
